@@ -49,9 +49,13 @@ while IFS= read -r genome_file; do
 done < ../genomes.txt
 ```
 
-We manually removed duplicates and some format errors that were introduced by gth2.aa in rare cases.
+We manually removed (rare) duplicates and some format errors that were introduced by gth2aa.sh in rare cases.
 
+We renamed the found proteins to contain assembly and query name with rename_fasta_entries.py:
 
+```
+rename_fasta_entries.py -i aa/ -o aa2/ -p bamB_2
+```
 
 ## Protein Alignment
 
