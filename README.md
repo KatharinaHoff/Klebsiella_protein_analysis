@@ -30,4 +30,33 @@ A total of 18689 assemblies were downloaded from NCBI. All but 20 were downloade
 
 ## Protein Identification
 
+The query proteins are contained in file https://github.com/KatharinaHoff/Klebsiella_protein_analysis/blob/main/data/proteins/query.fa
+
+We used GenomeThreader [1] to identify candidate proteins for each query in each genome assembly. This approach is not optimal since we had to manually curate the output in some cases, but it ensures the prediction of a complete gene with start and stop codon.
+
+```
+while IFS= read -r genome_file; do
+    # Derive the flat_genome filename by removing the path and .fna extension
+    flat_genome=$(basename "$genome_file" .fna)
+    ass_acc=$(echo "$flat_genome" | cut -d"_" -f1,2)      
+    gth2aa.sh "$genome_file" test.fa > "${ass_acc}.aa"
+    num_entries=$(grep -c "^>" "${ass_acc}.aa")
+    if [ "$num_entries" -eq 0 ]; then
+        echo "Warning: gene not found in ${genome_file} (${ass_acc})"
+    elif [ "$num_entries" -gt 1 ]; then
+        echo "Warning: gene found more than once in ${genome_file} (${ass_acc})"
+    fi
+done < ../genomes.txt
+```
+
+We manually removed duplicates and some format errors that were introduced by gth2.aa in rare cases.
+
+
+
 ## Protein Alignment
+
+
+
+## References
+
+[1] Gremme, G. (2012). Computational gene structure prediction (Doctoral dissertation, Staats-und Universitätsbibliothek Hamburg Carl von Ossietzky).
