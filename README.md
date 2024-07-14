@@ -1,2 +1,13 @@
-# Klebsiella_protein_analysis
-Documentation and software for analysis of lipoproteins in Klebsiella pneumoniae
+# Analysis of immogenic proteins in *Klebsiella pneumoniae*
+
+Katharina J. Hoff, University of Greifswald, katharina.hoff@uni-greifswald.de
+
+A joint project with Lisa Zierke and Prof. Dr. Sven Hammerschmidt at University of Greifswald
+
+## Genome Assemblies
+
+
+
+## Protein Identification
+
+## Protein Alignment
