@@ -54,7 +54,14 @@ We manually removed (rare) duplicates and some format errors that were introduce
 We renamed the found proteins to contain assembly and query name with rename_fasta_entries.py:
 
 ```
-rename_fasta_entries.py -i aa/ -o aa2/ -p bamB_2
+rename_fasta_entries.py -i aa/ -o aa2/ -p ${queryname}
+```
+
+Proteins shorter than 80% of the respective query length were discarded:
+
+```
+cat aa2/* > all.aa
+filter_fasta.py -f all.aa -r query.fa > all.f.aa
 ```
 
 ## Protein Alignment
