@@ -66,8 +66,15 @@ filter_fasta.py -f all.aa -r query.fa > all.f.aa
 
 ## Protein Alignment
 
+Protein Multiple Sequence Alignments were generated with learnMSA [2] as follows:
 
+```
+input_file=$(sed -n "${SLURM_ARRAY_TASK_ID}p" input_files.txt)
+learnMSA -i "${input_file}" -o "${input_file%.*}.out"
+```
 
 ## References
 
 [1] Gremme, G. (2012). Computational gene structure prediction (Doctoral dissertation, Staats-und Universitätsbibliothek Hamburg Carl von Ossietzky).
+
+[2] Becker, F., & Stanke, M. (2022). learnMSA: learning and aligning large protein families. GigaScience, 11, giac104.
