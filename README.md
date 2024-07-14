@@ -26,7 +26,7 @@ grep -c PGAP complete.tsv
 
 This returned only 10763 of 18689 assemblies. We therefore decided not to rely on the PGAP assembly.
 
-A total of 18689 assemblies were downloaded from NCBI. All but 20 were downloaded by FTP-link retrieval with wget. The missing 20 assemblies were manually downloaded because we could not identify a valid FTP link.
+A total of 18689 assemblies were downloaded from NCBI. All but 20 were downloaded by FTP-link retrieval with wget using https://github.com/KatharinaHoff/Klebsiella_protein_analysis/blob/main/scripts/download_ass.sh . The missing 20 assemblies were manually downloaded because we could not identify a valid FTP link.
 
 ## Protein Identification
 
